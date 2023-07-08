@@ -16,10 +16,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
           USERNAME: ${{ github.repository_owner }}
       - name: Commit & Pus
-        uses: ad-m/github-push-action@master
+        uses: actions-js/push@master
         with:
           github_token: ${{ secrets.TOKEN }}
+          repository: ${{ github.repository }}
           branch: ${{ github.ref }}
-          commit_user: aeplum
-          commit_email: memorixx@yonsei.ac.kr
+          user_name: aeplum
+          user_email: memorixx@yonsei.ac.kr
           commit_message: "generated"
