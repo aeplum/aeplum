@@ -15,12 +15,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
           USERNAME: ${{ github.repository_owner }}
-      - name: Commit & Pus
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.TOKEN }}
-          repository: ${{ github.repository }}
-          branch: ${{ github.ref }}
-          user_name: aeplum
-          user_email: memorixx@yonsei.ac.kr
-          commit_message: "generated"
+      - name: Commit & Push
+        run: |
+          git config user.name aeplum
+          git config user.email memorixx@yonsei.ac.kr
+          git add -A .
+          git commit -m "generated"
+          git push
