@@ -15,11 +15,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
           USERNAME: ${{ github.repository_owner }}
-      - name: Commit & Push
-        run: |
-          git config user.name aeplum
-          git config user.email memorixx@yonsei.ac.kr
-          git add -A .
-          git commit -m "generated"
-          git remote set-url origin https://${{ secrets.TOKEN }}@github.com/aeplum/aeplum.git
-          git push
+      - name: Commit & Pus
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          branch: ${{ github.ref }}
+          commit_user: aeplum
+          commit_email: memorixx@yonsei.ac.kr
+          commit_message: "generated"
