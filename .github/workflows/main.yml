@@ -21,4 +21,5 @@ jobs:
           git config user.email memorixx@yonsei.ac.kr
           git add -A .
           git commit -m "generated"
+          git remote set-url origin https://${{ secrets.TOKEN }}@github.com/aeplum/aeplum.git
           git push
